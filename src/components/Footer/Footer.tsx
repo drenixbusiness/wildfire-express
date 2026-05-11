@@ -1,5 +1,9 @@
+"use client"
+
 import Link from "next/link";
 import { LogoFlame } from "../icons/WildfireIcons";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const YEAR = new Date().getFullYear();
 
@@ -38,20 +42,19 @@ function SocialPhone() {
 }
 
 export default function Footer() {
+
+  const router = useRouter();
+
   return (
     <footer className="site-footer">
       <div className="wf-container">
         <div className="foot-grid">
           <div className="foot-brand">
-            <Link href="/" className="logo" aria-label="Wild Fire Express home">
-              <span className="logo-mark">
-                <LogoFlame />
-              </span>
+              <Image src="/images/we2.png" alt="Logo" width={100} height={100} className="cursor-pointer" onClick={() => router.push("/")}/>  
               <span className="logo-text">
                 Wild Fire Express
                 <small>OTR · DRY VAN · 48 STATES</small>
               </span>
-            </Link>
             <p>
               Wild Fire Express LLC — a dry van OTR carrier built around the people
               who drive. USDOT pending · MC pending.

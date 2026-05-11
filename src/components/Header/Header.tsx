@@ -4,6 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useState } from "react";
 import { LogoFlame, PhoneStroke } from "../icons/WildfireIcons";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 
 const NAV = [
   { href: "/", label: "Home" },
@@ -25,20 +28,18 @@ export default function Header() {
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
 
+  const router = useRouter();
+
   return (
     <header
       className={`site-header${mobileOpen ? " nav-mobile-open" : ""}`}
     >
       <div className="wf-container nav">
-        <Link href="/" className="logo" aria-label="Wild Fire Express home">
-          <span className="logo-mark" aria-hidden>
-            <LogoFlame />
-          </span>
-          <span className="logo-text">
-            Wild Fire Express
-            <small>OTR · DRY VAN · 48 STATES</small>
-          </span>
-        </Link>
+        <Image src="/images/we2.png" alt="Logo" width={100} height={100} className="cursor-pointer" onClick={() => router.push("/")} />
+        <span className="logo-text">
+          Wild Fire Express
+          <small>OTR · DRY VAN · 48 STATES</small>
+        </span>
 
         <ul className="nav-links">
           {NAV.map(({ href, label }) => (
