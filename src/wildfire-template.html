@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wild Fire Express — Dry Van Trucking, Built for the Long Haul</title>
+<meta name="description" content="Wild Fire Express is a dry van OTR carrier hauling freight across the lower 48. Owner operators and company drivers — better miles, honest pay, and dispatch that has your back." />
+<style>
+/* =========================================================
+   WILD FIRE EXPRESS — Design System
+   White/Gray base • Deep Navy cards • Orange (fire) accents
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+
+:root {
+  /* Surfaces */
+  --bg: #ffffff;
+  --bg-soft: #f5f5f7;
+  --bg-muted: #ececef;
+  --line: #e5e5e8;
+  --line-strong: #d4d4d8;
+
+  /* Text */
+  --ink: #0a0a0a;
+  --ink-2: #2a2a2a;
+  --ink-3: #525252;
+  --ink-mute: #8a8a8a;
+
+  /* Brand — Navy (cards / dark sections) */
+  --navy: #0b1738;
+  --navy-2: #142154;
+  --navy-3: #1e3a8a;
+  --navy-glow: rgba(30, 58, 138, 0.18);
+
+  /* Brand — Fire (CTAs / accents) */
+  --fire: #f97316;
+  --fire-2: #ea580c;
+  --fire-3: #dc2626;
+  --fire-glow: rgba(249, 115, 22, 0.35);
+  --fire-soft: #fff5ed;
+
+  /* Type */
+  --display: 'Anton', 'Impact', sans-serif;
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --body: 'Manrope', system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --container: 1240px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 2px 6px rgba(10, 10, 10, 0.04), 0 1px 2px rgba(10, 10, 10, 0.04);
+  --shadow-md: 0 8px 24px rgba(10, 10, 10, 0.08);
+  --shadow-fire: 0 10px 30px rgba(249, 115, 22, 0.35);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ---------- Display Type ---------- */
+.display {
+  font-family: var(--display);
+  letter-spacing: 0.01em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+.serif-it {
+  font-family: var(--serif);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-3);
+}
+.eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--fire);
+}
+.eyebrow.on-dark { color: rgba(255,255,255,0.7); }
+.eyebrow.on-dark::before { background: var(--fire); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s var(--ease);
+  white-space: nowrap;
+}
+.btn-fire {
+  background: linear-gradient(135deg, var(--fire) 0%, var(--fire-2) 60%, var(--fire-3) 100%);
+  color: #fff;
+  box-shadow: var(--shadow-fire);
+  position: relative;
+  overflow: hidden;
+}
+.btn-fire::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #ffb27a, var(--fire) 50%, var(--fire-2) 100%);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+.btn-fire:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(249, 115, 22, 0.55); }
+.btn-fire:hover::before { opacity: 1; }
+.btn-fire span { position: relative; z-index: 1; }
+.btn-fire .arrow { position: relative; z-index: 1; transition: transform 0.3s var(--ease); }
+.btn-fire:hover .arrow { transform: translateX(4px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+}
+.btn-ghost:hover { background: var(--ink); color: #fff; }
+
+.btn-ghost-light {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.45);
+}
+.btn-ghost-light:hover { background: #fff; color: var(--navy); border-color: #fff; }
+
+.btn-sm { padding: 12px 22px; font-size: 12px; }
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.logo .logo-mark {
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--fire), var(--fire-3));
+  border-radius: 10px;
+  box-shadow: var(--shadow-fire);
+}
+.logo .logo-mark svg { width: 20px; height: 20px; fill: #fff; }
+.logo-text { line-height: 1; }
+.logo-text small {
+  display: block;
+  font-family: var(--body);
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  color: var(--ink-mute);
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+}
+.nav-links a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-2);
+  border-radius: var(--radius-pill);
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.nav-links a:hover { color: var(--ink); background: var(--bg-soft); }
+.nav-links a.active { color: var(--fire-2); }
+
+.nav-cta { display: flex; align-items: center; gap: 14px; }
+.nav-phone {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-phone svg { width: 16px; height: 16px; color: var(--fire); }
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  width: 44px; height: 44px;
+  align-items: center; justify-content: center;
+  background: var(--ink);
+  border-radius: 10px;
+}
+.nav-toggle span {
+  display: block;
+  width: 18px; height: 2px;
+  background: #fff;
+  position: relative;
+}
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: ''; position: absolute; left: 0;
+  width: 18px; height: 2px; background: #fff;
+}
+.nav-toggle span::before { top: -6px; }
+.nav-toggle span::after { top: 6px; }
+
+@media (max-width: 980px) {
+  .nav-links, .nav-phone { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-mobile-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #fff;
+    padding: 14px;
+    border-bottom: 1px solid var(--line);
+    gap: 4px;
+  }
+  .nav-mobile-open .nav-links a { padding: 14px 18px; }
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  padding: 80px 0 60px;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(900px 500px at 80% -20%, rgba(249, 115, 22, 0.08), transparent 60%),
+    radial-gradient(700px 600px at -10% 100%, rgba(30, 58, 138, 0.07), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--bg-soft);
+  margin-bottom: 28px;
+}
+.hero-tag .pulse {
+  width: 8px; height: 8px;
+  background: var(--fire);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 0 0 var(--fire-glow);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(249, 115, 22, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(48px, 7.2vw, 110px);
+  line-height: 0.9;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.hero h1 .accent {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--fire), var(--fire-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero h1 .it {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  color: var(--ink-2);
+}
+
+.hero p.lead {
+  margin-top: 28px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-3);
+  max-width: 520px;
+}
+.hero-cta {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.hero-meta {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.hero-meta-item .num {
+  font-family: var(--display);
+  font-size: 42px;
+  line-height: 1;
+  color: var(--ink);
+}
+.hero-meta-item .num span { color: var(--fire); }
+.hero-meta-item .lbl {
+  margin-top: 6px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 600;
+}
+
+/* Hero visual */
+.hero-visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 60%, var(--navy-3) 100%);
+  box-shadow: 0 30px 80px rgba(11, 23, 56, 0.3);
+}
+.hero-visual img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  mix-blend-mode: luminosity;
+}
+.hero-visual .fade {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(11, 23, 56, 0.85) 100%);
+}
+.hero-visual .badge {
+  position: absolute;
+  bottom: 26px; left: 26px; right: 26px;
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 22px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 14px;
+  color: #fff;
+}
+.hero-visual .badge .icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--fire), var(--fire-3));
+  border-radius: 10px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.hero-visual .badge h4 {
+  font-family: var(--display);
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.hero-visual .badge p {
+  font-size: 12px; opacity: 0.7; letter-spacing: 0.04em;
+}
+
+/* Floating sticker */
+.hero-sticker {
+  position: absolute;
+  top: 32px; right: -30px;
+  width: 130px; height: 130px;
+  border-radius: 50%;
+  background: var(--fire);
+  color: #fff;
+  display: grid; place-items: center;
+  text-align: center;
+  font-family: var(--display);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  transform: rotate(-12deg);
+  box-shadow: var(--shadow-fire);
+  animation: spinSlow 22s linear infinite;
+  z-index: 2;
+}
+@keyframes spinSlow { to { transform: rotate(348deg); } }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-meta { grid-template-columns: 1fr 1fr; gap: 18px; }
+  .hero-sticker { width: 100px; height: 100px; font-size: 11px; right: 10px; }
+}
+
+/* ---------- Marquee ---------- */
+.marquee {
+  background: var(--ink);
+  color: #fff;
+  padding: 22px 0;
+  overflow: hidden;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+.marquee-track {
+  display: flex;
+  gap: 56px;
+  white-space: nowrap;
+  animation: scrollX 40s linear infinite;
+  font-family: var(--display);
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.marquee-track span { display: inline-flex; align-items: center; gap: 56px; }
+.marquee-track .dot {
+  width: 8px; height: 8px;
+  background: var(--fire);
+  border-radius: 50%;
+  display: inline-block;
+}
+@keyframes scrollX { to { transform: translateX(-50%); } }
+
+/* ---------- Sections ---------- */
+section { padding: 110px 0; }
+section.tight { padding: 80px 0; }
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.section-head h2 {
+  font-family: var(--display);
+  font-size: clamp(40px, 5.5vw, 80px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+}
+.section-head h2 .it {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--ink-3);
+  letter-spacing: -0.02em;
+}
+.section-head .head-text { color: var(--ink-3); font-size: 17px; max-width: 480px; }
+
+@media (max-width: 800px) {
+  .section-head { grid-template-columns: 1fr; gap: 18px; }
+  section { padding: 70px 0; }
+}
+
+/* ---------- Service cards (NAVY) ---------- */
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.service {
+  background: var(--navy);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 32px 28px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s var(--ease), background 0.4s var(--ease);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.service::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(400px 200px at 100% 0%, rgba(249, 115, 22, 0.18), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  pointer-events: none;
+}
+.service:hover { transform: translateY(-6px); background: var(--navy-2); }
+.service:hover::after { opacity: 1; }
+.service .num {
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 60px;
+}
+.service .ico {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--fire), var(--fire-3));
+  display: grid; place-items: center;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 18px rgba(249,115,22,0.35);
+}
+.service .ico svg { width: 26px; height: 26px; color: #fff; }
+.service h3 {
+  font-family: var(--display);
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.service p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 24px;
+}
+.service ul {
+  list-style: none;
+  display: flex; flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.service ul li {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: var(--radius-pill);
+  color: rgba(255,255,255,0.85);
+}
+.service .arrow {
+  position: absolute;
+  bottom: 28px; right: 28px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: grid; place-items: center;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.service:hover .arrow { background: var(--fire); transform: rotate(-45deg); }
+.service .arrow svg { width: 18px; height: 18px; color: #fff; }
+
+@media (max-width: 980px) { .services { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .services { grid-template-columns: 1fr; } }
+
+/* ---------- Why-us / split ---------- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.split-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 5/6;
+  background: var(--bg-soft);
+}
+.split-image img { width: 100%; height: 100%; object-fit: cover; }
+.split-image .badge2 {
+  position: absolute;
+  top: 24px; left: 24px;
+  padding: 10px 16px;
+  background: rgba(11, 23, 56, 0.7);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.split-image .stat-card {
+  position: absolute;
+  bottom: 24px; right: 24px;
+  background: #fff;
+  padding: 20px 22px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  display: flex; align-items: center; gap: 14px;
+}
+.split-image .stat-card .num {
+  font-family: var(--display);
+  font-size: 36px; line-height: 1;
+  color: var(--fire-2);
+}
+.split-image .stat-card .lbl {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-3);
+  max-width: 120px;
+}
+
+.split h2 {
+  font-family: var(--display);
+  font-size: clamp(36px, 4.6vw, 64px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.split h2 .it {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--fire-2);
+  letter-spacing: -0.02em;
+}
+.split p { color: var(--ink-3); font-size: 17px; margin-bottom: 14px; }
+
+.feat-list {
+  margin-top: 32px;
+  display: grid;
+  gap: 16px;
+}
+.feat-list .feat {
+  display: flex;
+  gap: 16px;
+  align-items: start;
+}
+.feat-list .feat .check {
+  width: 28px; height: 28px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--fire-soft);
+  color: var(--fire-2);
+  display: grid; place-items: center;
+}
+.feat-list .feat .check svg { width: 14px; height: 14px; }
+.feat-list .feat strong { display: block; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.feat-list .feat span { font-size: 14px; color: var(--ink-3); }
+
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 36px; } }
+
+/* ---------- Stats Strip ---------- */
+.stats {
+  background: var(--navy);
+  color: #fff;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(600px 300px at 80% 100%, rgba(249, 115, 22, 0.15), transparent 60%),
+    radial-gradient(500px 280px at 0% 0%, rgba(255,255,255,0.05), transparent 60%);
+}
+.stats .container { position: relative; }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.stat {
+  border-left: 1px solid rgba(255,255,255,0.12);
+  padding-left: 24px;
+}
+.stat .v {
+  font-family: var(--display);
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 1;
+  background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.stat .v sup {
+  font-size: 0.4em; vertical-align: super;
+  color: var(--fire);
+  -webkit-text-fill-color: var(--fire);
+  margin-left: 4px;
+}
+.stat .l {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+}
+@media (max-width: 800px) { .stats-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+
+/* ---------- Roles / Pricing cards ---------- */
+.roles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.role {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.role:hover {
+  border-color: var(--ink);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.role.featured {
+  background: var(--navy);
+  color: #fff;
+  border: none;
+}
+.role.featured .pay { color: var(--fire); }
+.role.featured .role-title { color: #fff; }
+.role.featured .role-feats li { color: rgba(255,255,255,0.8); }
+.role.featured .role-feats li::before { background: var(--fire); }
+.role.featured .role-sub { color: rgba(255,255,255,0.6); }
+.role .tag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 12px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  margin-bottom: 24px;
+}
+.role .tag.tag-blue { background: var(--navy); color: #fff; }
+.role .tag.tag-fire { background: var(--fire); color: #fff; }
+.role .tag.tag-light { background: rgba(255,255,255,0.12); color: #fff; }
+.role-title {
+  font-family: var(--display);
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.role-sub { font-size: 14px; color: var(--ink-3); margin-bottom: 22px; }
+.pay {
+  font-family: var(--display);
+  font-size: 36px;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.pay-period { font-size: 12px; color: var(--ink-mute); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-bottom: 28px; }
+.role-feats { list-style: none; display: grid; gap: 10px; margin-bottom: 28px; }
+.role-feats li {
+  font-size: 14px;
+  color: var(--ink-2);
+  padding-left: 22px;
+  position: relative;
+}
+.role-feats li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 9px;
+  width: 8px; height: 8px;
+  background: var(--fire);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+.role .btn { margin-top: auto; align-self: flex-start; }
+
+@media (max-width: 900px) { .roles { grid-template-columns: 1fr; } }
+
+/* ---------- Testimonials ---------- */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.test {
+  background: var(--bg-soft);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  position: relative;
+  border: 1px solid var(--line);
+}
+.test .stars { color: var(--fire); margin-bottom: 18px; letter-spacing: 4px; font-size: 18px; }
+.test blockquote {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.35;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: 28px;
+  letter-spacing: -0.005em;
+}
+.test .who { display: flex; align-items: center; gap: 12px; }
+.test .who .av {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-3), var(--navy));
+  color: #fff;
+  display: grid; place-items: center;
+  font-family: var(--display);
+  font-size: 16px;
+}
+.test .who .nm { font-weight: 700; font-size: 14px; }
+.test .who .rl { font-size: 11px; color: var(--ink-mute); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+
+@media (max-width: 900px) { .testimonials { grid-template-columns: 1fr; } }
+
+/* ---------- FAQ ---------- */
+.faq-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
+}
+.faq-list { display: grid; gap: 12px; }
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 0.3s var(--ease);
+}
+.faq-item[open] { border-color: var(--ink); }
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 16px;
+  gap: 24px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item .ico {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.faq-item .ico::before {
+  content: '+';
+  font-size: 18px;
+  color: var(--ink);
+  font-weight: 400;
+}
+.faq-item[open] .ico { background: var(--fire); transform: rotate(45deg); }
+.faq-item[open] .ico::before { color: #fff; }
+.faq-item .answer {
+  padding: 0 24px 24px;
+  color: var(--ink-3);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+@media (max-width: 800px) { .faq-wrap { grid-template-columns: 1fr; gap: 36px; } }
+
+/* ---------- CTA Strip ---------- */
+.cta-strip {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 64px 56px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 80px 0 0;
+}
+.cta-strip::after {
+  content: '';
+  position: absolute;
+  right: -100px; bottom: -100px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249,115,22,0.45), transparent 70%);
+  filter: blur(20px);
+}
+.cta-strip h2 {
+  font-family: var(--display);
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.cta-strip h2 .it {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--fire);
+  letter-spacing: -0.02em;
+}
+.cta-strip p {
+  margin-top: 14px;
+  color: rgba(255,255,255,0.7);
+  max-width: 480px;
+  font-size: 17px;
+}
+.cta-strip-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: end; position: relative; z-index: 1; }
+@media (max-width: 800px) {
+  .cta-strip { grid-template-columns: 1fr; padding: 40px 28px; gap: 28px; }
+  .cta-strip-actions { justify-content: start; }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: #08111f;
+  color: rgba(255,255,255,0.7);
+  padding: 80px 0 30px;
+  margin-top: 80px;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 56px;
+}
+.foot-grid h4 {
+  font-family: var(--display);
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  color: #fff;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+.foot-brand p { color: rgba(255,255,255,0.55); font-size: 14px; margin-top: 18px; max-width: 320px; }
+.foot-brand .logo { color: #fff; }
+.foot-brand .logo-text small { color: rgba(255,255,255,0.5); }
+.foot-grid ul { list-style: none; display: grid; gap: 12px; }
+.foot-grid ul a { color: rgba(255,255,255,0.65); font-size: 14px; transition: color 0.2s var(--ease); }
+.foot-grid ul a:hover { color: var(--fire); }
+.foot-bottom {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.45);
+}
+.foot-socials { display: flex; gap: 10px; }
+.foot-socials a {
+  width: 38px; height: 38px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  color: rgba(255,255,255,0.6);
+  transition: all 0.3s var(--ease);
+}
+.foot-socials a:hover { background: var(--fire); border-color: var(--fire); color: #fff; transform: translateY(-2px); }
+.foot-socials svg { width: 16px; height: 16px; }
+
+@media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
+@media (max-width: 480px) { .foot-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Page Hero (subpages) ---------- */
+.page-hero {
+  padding: 70px 0 60px;
+  background:
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  right: -200px; top: -200px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--fire-glow), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+.page-hero .crumbs {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+.page-hero .crumbs a { color: var(--fire-2); }
+.page-hero h1 {
+  font-family: var(--display);
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  max-width: 900px;
+}
+.page-hero h1 .it {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  color: var(--fire-2);
+}
+.page-hero p { margin-top: 22px; color: var(--ink-3); font-size: 18px; max-width: 640px; }
+
+/* ---------- Forms ---------- */
+.form-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line);
+}
+.form-card h3 {
+  font-family: var(--display);
+  font-size: 32px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.form-card .form-sub { color: var(--ink-3); font-size: 15px; margin-bottom: 28px; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field.full { grid-column: 1 / -1; }
+.field label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+.field input,
+.field select,
+.field textarea {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  width: 100%;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--fire);
+  box-shadow: 0 0 0 4px rgba(249,115,22,0.12);
+}
+.field textarea { resize: vertical; min-height: 120px; }
+.consent {
+  display: flex; gap: 10px; align-items: start;
+  font-size: 13px; color: var(--ink-3);
+  margin: 14px 0 22px;
+}
+.consent input { margin-top: 3px; accent-color: var(--fire); }
+.form-status {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  display: none;
+}
+.form-status.ok { background: #ecfdf5; color: #065f46; display: block; }
+.form-status.err { background: #fef2f2; color: #991b1b; display: block; }
+.form-status.sending { background: var(--fire-soft); color: var(--fire-3); display: block; }
+
+@media (max-width: 700px) {
+  .form-card { padding: 28px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* Two-col page layout */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+
+/* About page features */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.value {
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  position: relative;
+  transition: all 0.3s var(--ease);
+}
+.value:hover { background: #fff; border-color: var(--ink); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.value .n {
+  font-family: var(--display);
+  font-size: 14px;
+  color: var(--fire);
+  letter-spacing: 0.18em;
+  margin-bottom: 18px;
+}
+.value h3 {
+  font-family: var(--display);
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+.value p { color: var(--ink-3); font-size: 15px; line-height: 1.6; }
+@media (max-width: 700px) { .value-grid { grid-template-columns: 1fr; } }
+
+/* Fleet specs table */
+.spec-table {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.spec-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+.spec-row:last-child { border-bottom: none; }
+.spec-row:nth-child(odd) { background: var(--bg-soft); }
+.spec-row .k {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+.spec-row .v {
+  font-family: var(--display);
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+/* Contact info cards */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.contact-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  transition: all 0.3s var(--ease);
+}
+.contact-card:hover { border-color: var(--ink); transform: translateY(-3px); }
+.contact-card .ico {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--fire), var(--fire-3));
+  display: grid; place-items: center;
+  margin-bottom: 18px;
+}
+.contact-card .ico svg { width: 22px; height: 22px; color: #fff; }
+.contact-card h4 {
+  font-family: var(--display);
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 6px;
+}
+.contact-card .v {
+  font-family: var(--display);
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.contact-card a:hover { color: var(--fire-2); }
+
+/* Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+.reveal.is-in { opacity: 1; transform: translateY(0); }
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+</head>
+<body>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="Wild Fire Express home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2c1 4 5 5 5 10a5 5 0 1 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z" fill="white"/>
+        </svg>
+      </span>
+      <span class="logo-text">
+        Wild Fire Express
+        <small>OTR · DRY VAN · 48 STATES</small>
+      </span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="fleet.html">Fleet</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="tel:+10000000000" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +1 (000) 000-0000
+      </a>
+      <a href="careers.html" class="btn btn-fire btn-sm"><span>Drive With Us</span><span class="arrow">→</span></a>
+      <button class="nav-toggle" aria-label="Open menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="hero-tag"><span class="pulse"></span> Now hiring · CDL-A · 48 STATES</div>
+      <h1>
+        Run<span class="it"> the </span><br/>
+        roads<span class="it"> that pay </span><br/>
+        <span class="accent">like fire.</span>
+      </h1>
+      <p class="lead">
+        Wild Fire Express is a dry van OTR carrier built around the people behind the wheel. Pre-booked freight, transparent settlements, and a dispatch team that picks up at 2 a.m. when it actually counts.
+      </p>
+      <div class="hero-cta">
+        <a href="careers.html" class="btn btn-fire"><span>Apply In 90 Seconds</span><span class="arrow">→</span></a>
+        <a href="services.html" class="btn btn-ghost">See What We Haul</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="num">88<span>%</span></div>
+          <div class="lbl">Owner-Op Gross</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="num">24/<span>7</span></div>
+          <div class="lbl">Live Dispatch</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="num">48<span>+</span></div>
+          <div class="lbl">States Covered</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80" alt="Wild Fire Express truck on highway" />
+      <div class="fade"></div>
+      <div class="hero-sticker">
+        <div>
+          DIRECT<br/>DEPOSIT<br/>· FRIDAYS ·
+        </div>
+      </div>
+      <div class="badge">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M12 2 4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6l-8-4z"/></svg>
+        </div>
+        <div>
+          <h4>FMCSA Compliant</h4>
+          <p>A-rated insurance · Trailer interchange · ELD-tracked</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== MARQUEE ============================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>WILD FIRE EXPRESS <span class="dot"></span> 53′ DRY VAN <span class="dot"></span> NO FORCED DISPATCH <span class="dot"></span> WEEKLY SETTLEMENTS <span class="dot"></span> NO TOUCH FREIGHT <span class="dot"></span> 88% OF GROSS <span class="dot"></span></span>
+    <span>WILD FIRE EXPRESS <span class="dot"></span> 53′ DRY VAN <span class="dot"></span> NO FORCED DISPATCH <span class="dot"></span> WEEKLY SETTLEMENTS <span class="dot"></span> NO TOUCH FREIGHT <span class="dot"></span> 88% OF GROSS <span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- ============================== SERVICES ============================== -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Services<br/><span class="it">that move freight.</span></h2>
+      <p class="head-text">Four lanes, one standard. Whether you’re a shipper booking a load or a driver picking the next run, the answer is the same — clean paperwork, on-time hooks, and honest numbers.</p>
+    </div>
+
+    <div class="services">
+      <article class="service reveal">
+        <div class="num">01 / SERVICE</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h13V6H3zm13-7h4l3 3v4h-7M6 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+        </div>
+        <h3>Dry Van OTR</h3>
+        <p>Long-haul 53′ dry van across the lower 48. Clean trailers, hard-running power units, and drivers who hit the dock when they said they would.</p>
+        <ul>
+          <li>53′ Trailers</li><li>Solo · Team</li><li>Sleeper Cab</li>
+        </ul>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </article>
+
+      <article class="service reveal">
+        <div class="num">02 / SERVICE</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h12v10H3zm12 4h4l2 2v4h-6"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/></svg>
+        </div>
+        <h3>Partial Loads</h3>
+        <p>Smarter use of trailer space — multiple shippers, one route. Lower per-shipment costs without putting your timeline on the line.</p>
+        <ul>
+          <li>Cost-Sharing</li><li>Mid-Volume</li><li>Multi-Stop</li>
+        </ul>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </article>
+
+      <article class="service reveal">
+        <div class="num">03 / SERVICE</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12v8H2zm12 2h5l3 3v3h-8M9 4v4M5 4v4"/></svg>
+        </div>
+        <h3>Drop &amp; Hook</h3>
+        <p>Pre-positioned trailers ready when you are. Load while the truck is still rolling somewhere else — minutes saved compound across a fleet.</p>
+        <ul>
+          <li>Pre-Loaded</li><li>Fast Turn</li><li>Yard Swap</li>
+        </ul>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </article>
+
+      <article class="service reveal">
+        <div class="num">04 / SERVICE</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h3>Expedited Freight</h3>
+        <p>When the load needs to be there yesterday. Team drivers, dedicated lanes, and live tracking from pickup to POD — no surprises.</p>
+        <ul>
+          <li>Team Driving</li><li>Live ETA</li><li>Priority Lanes</li>
+        </ul>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </article>
+
+      <article class="service reveal">
+        <div class="num">05 / SERVICE</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l4-7h10l4 7-9 9z"/><path d="M3 12h18"/></svg>
+        </div>
+        <h3>Owner Operators</h3>
+        <p>Run under our authority and keep the bigger share. Percent-of-gross pay, full FSC pass-through, weekly settlements, no escrow holds.</p>
+        <ul>
+          <li>88% Gross</li><li>Weekly Pay</li><li>No Escrow</li>
+        </ul>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </article>
+
+      <article class="service reveal">
+        <div class="num">06 / SERVICE</div>
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5A8.5 8.5 0 0 1 21 11v.5z"/></svg>
+        </div>
+        <h3>24/7 Dispatch</h3>
+        <p>Real people. Real answers. The phones do not go to voicemail at midnight on a Sunday — because that is when the worst of it happens.</p>
+        <ul>
+          <li>Live Humans</li><li>After-Hours</li><li>Bilingual</li>
+        </ul>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== STATS STRIP ============================== -->
+<section class="stats">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:48px;">
+      <h2 style="color:#fff;">By the<br/><span class="it" style="color:rgba(255,255,255,0.55);">numbers.</span></h2>
+      <p class="head-text" style="color:rgba(255,255,255,0.65);">A small company doesn’t mean small results. The metrics below are what we run on — and what we hold ourselves to, every week.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat reveal"><div class="v">94<sup>%</sup></div><div class="l">On-Time Delivery</div></div>
+      <div class="stat reveal"><div class="v">98<sup>%</sup></div><div class="l">Driver Retention</div></div>
+      <div class="stat reveal"><div class="v">300<sup>+</sup></div><div class="l">Broker Network</div></div>
+      <div class="stat reveal"><div class="v">$2.20<sup>+</sup></div><div class="l">Per-Mile Average</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SPLIT / WHY US ============================== -->
+<section>
+  <div class="container">
+    <div class="split">
+      <div class="split-image reveal">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1000&q=80" alt="Truck at sunset" />
+        <div class="badge2">Built by Drivers</div>
+        <div class="stat-card">
+          <div class="num">100%</div>
+          <div class="lbl">No Touch Freight</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">Why Wild Fire</div>
+        <h2 style="margin-top:18px;">A carrier <span class="it">that respects</span><br/>the work behind the wheel.</h2>
+        <p>The trucking industry runs on people who get up at 4 a.m. and sleep in their truck. We built Wild Fire Express knowing exactly what that looks like — and we structured everything around making it pay.</p>
+        <div class="feat-list">
+          <div class="feat">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+            <div><strong>Non-forced dispatch</strong><span>Pick the loads that work for your week. Your schedule, your call.</span></div>
+          </div>
+          <div class="feat">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+            <div><strong>Friday direct deposit</strong><span>Settlements are clear, line-itemed, and in your account every Friday.</span></div>
+          </div>
+          <div class="feat">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+            <div><strong>One dispatcher, every week</strong><span>You talk to the same person who knows your truck, your home time, and your habits.</span></div>
+          </div>
+          <div class="feat">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+            <div><strong>Clean-inspection bonuses</strong><span>Run safe and we pay extra for it. Simple as that.</span></div>
+          </div>
+        </div>
+        <a href="about.html" class="btn btn-fire" style="margin-top:34px;"><span>Read Our Story</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ROLES / OPPORTUNITIES ============================== -->
+<section style="background:var(--bg-soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Three ways<br/><span class="it">to run with us.</span></h2>
+      <p class="head-text">Pick the path that fits where you are right now. The numbers below are real ranges — what people on each path actually earn at Wild Fire Express, not a recruiting brochure number.</p>
+    </div>
+
+    <div class="roles">
+      <div class="role reveal">
+        <span class="tag tag-blue">Company Driver</span>
+        <h3 class="role-title">Company Driver</h3>
+        <p class="role-sub">Drive our trucks. Run our authority. Steady paycheck, no equipment risk.</p>
+        <div class="pay">$1,400 – $1,800</div>
+        <div class="pay-period">Per Week</div>
+        <ul class="role-feats">
+          <li>CPM-based pay structure</li>
+          <li>Direct deposit every Friday</li>
+          <li>Full benefits eligibility</li>
+          <li>No-touch freight standard</li>
+          <li>24/7 driver support</li>
+        </ul>
+        <a href="careers.html" class="btn btn-ghost btn-sm">Apply Now</a>
+      </div>
+
+      <div class="role featured reveal">
+        <span class="tag tag-fire">★ Most Picked</span>
+        <h3 class="role-title">Owner Operator</h3>
+        <p class="role-sub">Your truck, our authority, our freight network. Keep the bigger share.</p>
+        <div class="pay">$8,000 – $12,000</div>
+        <div class="pay-period">Per Week Gross</div>
+        <ul class="role-feats">
+          <li>88% of gross to the driver</li>
+          <li>Full FSC pass-through</li>
+          <li>No escrow, no trailer fee</li>
+          <li>Pre-booked freight pipeline</li>
+          <li>Bilingual dispatch 24/7</li>
+        </ul>
+        <a href="careers.html" class="btn btn-fire btn-sm"><span>Apply Now</span><span class="arrow">→</span></a>
+      </div>
+
+      <div class="role reveal">
+        <span class="tag tag-blue">Partner</span>
+        <h3 class="role-title">Lease Partner</h3>
+        <p class="role-sub">Run a small fleet under Wild Fire authority. Built for growth.</p>
+        <div class="pay">$25K – $80K+</div>
+        <div class="pay-period">Per Truck / Month</div>
+        <ul class="role-feats">
+          <li>Multiple-truck programs</li>
+          <li>Fleet-wide insurance</li>
+          <li>Dedicated account manager</li>
+          <li>Capital partnership options</li>
+          <li>Quarterly performance bonuses</li>
+        </ul>
+        <a href="careers.html" class="btn btn-ghost btn-sm">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TESTIMONIALS ============================== -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>What our<br/><span class="it">drivers say.</span></h2>
+      <p class="head-text">We don’t pay for reviews and we don’t script them. Here’s what some of the people running with us have shared, in their own words.</p>
+    </div>
+
+    <div class="testimonials">
+      <div class="test reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“I was running for a mega-fleet that treated me like a number. Switched to Wild Fire eight months ago. Same lanes, same hours, $1,800 more per week.”</blockquote>
+        <div class="who">
+          <div class="av">MC</div>
+          <div>
+            <div class="nm">Marcus Calhoun</div>
+            <div class="rl">Owner Operator · Texas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“What sold me was the dispatch. Real people, day or night. When my trailer blew a tire outside Knoxville at 3 a.m., they had a fix on the way before I finished filing the report.”</blockquote>
+        <div class="who">
+          <div class="av">DR</div>
+          <div>
+            <div class="nm">Devontae Reyes</div>
+            <div class="rl">Company Driver · Georgia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="test reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“Settlement statements are clean, every Friday like clockwork. After fifteen years in this industry, I can finally read my paycheck without a calculator.”</blockquote>
+        <div class="who">
+          <div class="av">AK</div>
+          <div>
+            <div class="nm">Aziz Khasanov</div>
+            <div class="rl">Lease Partner · Illinois</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FAQ ============================== -->
+<section style="background:var(--bg-soft); border-top:1px solid var(--line);">
+  <div class="container">
+    <div class="faq-wrap">
+      <div class="reveal">
+        <div class="eyebrow">Got Questions</div>
+        <h2 class="display" style="font-size:clamp(36px,4.6vw,64px); margin-top:18px;">FAQs<br/><span class="serif-it" style="color:var(--ink-3);">straight answers.</span></h2>
+        <p style="margin-top:22px; color:var(--ink-3); max-width:380px;">Don’t see what you’re looking for? Call our recruiting line — somebody picks up.</p>
+        <a href="contact.html" class="btn btn-fire" style="margin-top:24px;"><span>Talk To Recruiting</span><span class="arrow">→</span></a>
+      </div>
+
+      <div class="faq-list reveal">
+        <details class="faq-item" open>
+          <summary>What CDL do I need to drive for Wild Fire Express?<span class="ico"></span></summary>
+          <div class="answer">A valid Class A Commercial Driver’s License is required for all OTR positions. We hire across the lower 48, and we accept CDLs from any state.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How much experience do you require?<span class="ico"></span></summary>
+          <div class="answer">A minimum of six months recent OTR experience in a Class A sleeper. If you’re close to that mark, talk to recruiting — we evaluate every application individually.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How often does Wild Fire pay drivers?<span class="ico"></span></summary>
+          <div class="answer">Settlements run weekly, Saturday-to-Saturday. Direct deposit hits your account the following Friday. No held-back weeks, no surprise reserves.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do you offer fuel cards or sign-on bonuses?<span class="ico"></span></summary>
+          <div class="answer">Yes — fuel cards are issued on day one with a fleet discount averaging 30–50¢ per gallon. Sign-on, referral, and clean-inspection bonuses are seasonal; ask recruiting for the current offer.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I review my settlement before payment is processed?<span class="ico"></span></summary>
+          <div class="answer">Always. Each Saturday you receive your detailed statement to confirm. If anything looks off, accounting fixes it before the Friday payout — that is the whole point of the review window.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Where do I park my truck between loads?<span class="ico"></span></summary>
+          <div class="answer">Our main yard is centrally located in the U.S. with secure overnight parking. Drivers based out-of-region can use our partner network — no extra fee.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA STRIP ============================== -->
+<section class="tight">
+  <div class="container">
+    <div class="cta-strip reveal">
+      <div>
+        <div class="eyebrow on-dark" style="margin-bottom:16px;">Ready when you are</div>
+        <h2>Apply once.<br/><span class="it">Run for years.</span></h2>
+        <p>The application takes 90 seconds. A real recruiter calls you back inside 15 minutes during business hours.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="careers.html" class="btn btn-fire"><span>Start My Application</span><span class="arrow">→</span></a>
+        <a href="tel:+10000000000" class="btn btn-ghost-light">Call Recruiting</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c1 4 5 5 5 10a5 5 0 1 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z" fill="white"/></svg></span>
+          <span class="logo-text">Wild Fire Express<small>OTR · DRY VAN · 48 STATES</small></span>
+        </a>
+        <p>Wild Fire Express LLC — a dry van OTR carrier built around the people who drive. USDOT pending · MC pending.</p>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="fleet.html">Fleet</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Drivers</h4>
+        <ul>
+          <li><a href="careers.html">Apply Now</a></li>
+          <li><a href="careers.html#owner">Owner Operator</a></li>
+          <li><a href="careers.html#company">Company Driver</a></li>
+          <li><a href="careers.html#partner">Lease Partner</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Reach Us</h4>
+        <ul>
+          <li><a href="tel:+10000000000">+1 (000) 000-0000</a></li>
+          <li><a href="mailto:hr@wildfireexpress.com">hr@wildfireexpress.com</a></li>
+          <li>Yard &amp; HQ — USA</li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div>© <span id="year">2026</span> Wild Fire Express LLC · All rights reserved.</div>
+      <div class="foot-socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7c0-1.1.9-2 2-2h2V1h-3a5 5 0 0 0-5 5v4H6v4h3v8z"/></svg></a>
+        <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m21 4-3 16-6-4-3 3v-4l11-9-13 7-4-1 18-8z"/></svg></a>
+        <a href="#" aria-label="Phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Wild Fire Express — UI interactions */
+
+// Mobile nav toggle
+const toggle = document.querySelector('.nav-toggle');
+const header = document.querySelector('.site-header');
+if (toggle && header) {
+  toggle.addEventListener('click', () => {
+    header.classList.toggle('nav-mobile-open');
+  });
+}
+
+// Close mobile nav when a link is clicked
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => header && header.classList.remove('nav-mobile-open'));
+});
+
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('is-in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Update copyright year
+const yr = document.getElementById('year');
+if (yr) yr.textContent = new Date().getFullYear();
+
+</script>
+</body>
+</html>
