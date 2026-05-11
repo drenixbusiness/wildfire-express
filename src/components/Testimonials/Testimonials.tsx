@@ -3,7 +3,7 @@ import Reveal from "../Reveal/Reveal";
 const ITEMS = [
   {
     quote:
-      "I was running for a mega-fleet that treated me like a number. Switched to Wild Fire eight months ago. Same lanes, same hours, $1,800 more per week.",
+      "I was running for a mega-fleet that treated me like a number. Switched to Wildfire eight months ago. Same lanes, same hours, $1,800 more per week.",
     initials: "MC",
     name: "Marcus Calhoun",
     role: "Owner Operator · Texas",
@@ -26,7 +26,7 @@ const ITEMS = [
 
 export default function Testimonials() {
   return (
-    <section className="wf-section">
+    <section className="wf-section testimonials-band">
       <div className="wf-container">
         <Reveal>
           <div className="section-head">
@@ -54,7 +54,7 @@ export default function Testimonials() {
                 <div className="who">
                   <div className="av">{t.initials}</div>
                   <div>
-                    <div className="nm">{t.name}</div>
+                    <div className="nm text-black">{t.name}</div>
                     <div className="rl">{t.role}</div>
                   </div>
                 </div>

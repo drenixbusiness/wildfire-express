@@ -1,9 +1,21 @@
 import Link from "next/link";
 import Reveal from "../Reveal/Reveal";
 
-export default function CtaStrip() {
+type CtaStripProps = {
+  /** Hide the secondary phone CTA (e.g. on the contact page). */
+  showCallRecruiting?: boolean;
+  /** Less outer padding when stacked under compact copy (e.g. careers page). */
+  compactVertical?: boolean;
+};
+
+export default function CtaStrip({
+  showCallRecruiting = true,
+  compactVertical = false,
+}: CtaStripProps) {
   return (
-    <section className="wf-section tight">
+    <section
+      className={`wf-section tight${compactVertical ? " cta-strip-compact-vertical" : ""}`}
+    >
       <div className="wf-container">
         <Reveal>
           <div className="cta-strip">
@@ -26,9 +38,11 @@ export default function CtaStrip() {
                 <span>Start My Application</span>
                 <span className="arrow">→</span>
               </Link>
-              <a href="tel:+10000000000" className="btn btn-ghost-light">
-                Call Recruiting
-              </a>
+              {showCallRecruiting ? (
+                <a href="tel:+10000000000" className="btn btn-ghost-light">
+                  Call Recruiting
+                </a>
+              ) : null}
             </div>
           </div>
         </Reveal>

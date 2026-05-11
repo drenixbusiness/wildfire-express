@@ -3,24 +3,30 @@ import Reveal from "../Reveal/Reveal";
 import { ArrowRight } from "../icons/WildfireIcons";
 import { SERVICES } from "./servicesData";
 
-export default function Services() {
+type ServicesProps = {
+  hideHeading?: boolean;
+};
+
+export default function Services({ hideHeading = false }: ServicesProps) {
   return (
     <section className="wf-section">
       <div className="wf-container">
-        <Reveal>
-          <div className="section-head">
-            <h2>
-              Services
-              <br />
-              <span className="it it--muted">that move freight.</span>
-            </h2>
-            <p className="head-text">
-              Four lanes, one standard. Whether you&apos;re a shipper booking a
-              load or a driver picking the next run, the answer is the same —
-              clean paperwork, on-time hooks, and honest numbers.
-            </p>
-          </div>
-        </Reveal>
+        {!hideHeading ? (
+          <Reveal>
+            <div className="section-head">
+              <h2>
+                Services
+                <br />
+                <span className="it it--muted">that move freight.</span>
+              </h2>
+              <p className="head-text">
+                Four lanes, one standard. Whether you&apos;re a shipper booking a
+                load or a driver picking the next run, the answer is the same —
+                clean paperwork, on-time hooks, and honest numbers.
+              </p>
+            </div>
+          </Reveal>
+        ) : null}
 
         <div className="services">
           {SERVICES.map((s) => (

@@ -24,7 +24,7 @@ export default function Hero() {
             <span className="accent">like fire.</span>
           </h1>
           <p className="lead">
-            Wild Fire Express is a dry van OTR carrier built around the people
+            Wildfire Express is a dry van OTR carrier built around the people
             behind the wheel. Pre-booked freight, transparent settlements, and a
             dispatch team that picks up at 2 a.m. when it actually counts.
           </p>
@@ -63,7 +63,7 @@ export default function Hero() {
           <div className="hero-visual">
             <Image
               src={HERO_IMG}
-              alt="Wild Fire Express truck on highway"
+              alt="Wildfire Express truck on highway"
               fill
               sizes="(max-width: 900px) 100vw, 42vw"
               priority

@@ -3,7 +3,7 @@ import Reveal from "../Reveal/Reveal";
 
 const FAQS = [
   {
-    q: "What CDL do I need to drive for Wild Fire Express?",
+    q: "What CDL do I need to drive for Wildfire Express?",
     a: "A valid Class A Commercial Driver’s License is required for all OTR positions. We hire across the lower 48, and we accept CDLs from any state.",
   },
   {
@@ -11,7 +11,7 @@ const FAQS = [
     a: "A minimum of six months recent OTR experience in a Class A sleeper. If you’re close to that mark, talk to recruiting — we evaluate every application individually.",
   },
   {
-    q: "How often does Wild Fire pay drivers?",
+    q: "How often does Wildfire pay drivers?",
     a: "Settlements run weekly, Saturday-to-Saturday. Direct deposit hits your account the following Friday. No held-back weeks, no surprise reserves.",
   },
   {

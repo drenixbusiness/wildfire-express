@@ -1,7 +1,7 @@
 function MarqueeSpan() {
   return (
     <span>
-      WILD FIRE EXPRESS <span className="dot" />
+      WILDFIRE EXPRESS <span className="dot" />
       53′ DRY VAN <span className="dot" />
       NO FORCED DISPATCH <span className="dot" />
       WEEKLY SETTLEMENTS <span className="dot" />

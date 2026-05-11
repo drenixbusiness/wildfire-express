@@ -25,7 +25,12 @@ const FEATURES = [
   },
 ] as const;
 
-export default function WhyWildFire() {
+type WhyWildFireProps = {
+  /** Hide the in-section headline (when the page already uses `PageHero` with the same message). */
+  hideHeading?: boolean;
+};
+
+export default function WhyWildFire({ hideHeading = false }: WhyWildFireProps) {
   return (
     <section className="wf-section">
       <div className="wf-container">
@@ -47,17 +52,42 @@ export default function WhyWildFire() {
             </div>
           </Reveal>
           <Reveal>
-            <div className="eyebrow">Why Wild Fire</div>
-            <h2 style={{ marginTop: 18 }}>
-              A carrier <span className="it">that respects</span>
-              <br />
-              the work behind the wheel.
-            </h2>
-            <p className="split-body">
-              The trucking industry runs on people who get up at 4 a.m. and sleep
-              in their truck. We built Wild Fire Express knowing exactly what that
-              looks like — and we structured everything around making it pay.
-            </p>
+            {!hideHeading ? (
+              <>
+                <div className="eyebrow">Why Wildfire</div>
+                <h2 style={{ marginTop: 18 }}>
+                  A carrier <span className="it">that respects</span>
+                  <br />
+                  the work behind the wheel.
+                </h2>
+                <p className="split-body">
+                  The trucking industry runs on people who get up at 4 a.m. and sleep
+                  in their truck. We built Wildfire Express knowing exactly what that
+                  looks like — and we structured everything around making it pay.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="split-body">
+                  Wildfire Express started with a simple rule: treat drivers the way
+                  we wanted to be treated when we were behind the wheel. That means
+                  clear settlements, predictable home time conversations, and
+                  dispatchers who answer when the night goes sideways.
+                </p>
+                <p className="split-body">
+                  We are big enough to keep you rolling with dry-van freight across
+                  the lower 48, and small enough that your name does not get lost in a
+                  call queue. Safety, compliance, and relationships with brokers and
+                  shippers are not buzzwords here — they are how we protect everyone&apos;s
+                  paycheck.
+                </p>
+                <p className="split-body">
+                  Whether you are exploring your first OTR job or bringing years of
+                  experience as an owner operator, we built this company so the work
+                  behind the wheel is respected — and paid like it.
+                </p>
+              </>
+            )}
             <div className="feat-list">
               {FEATURES.map((f) => (
                 <div className="feat" key={f.title}>
@@ -71,10 +101,17 @@ export default function WhyWildFire() {
                 </div>
               ))}
             </div>
-            <Link href="/about" className="btn btn-fire" style={{ marginTop: 34 }}>
-              <span>Read Our Story</span>
-              <span className="arrow">→</span>
-            </Link>
+            {!hideHeading ? (
+              <Link href="/about" className="btn btn-fire" style={{ marginTop: 34 }}>
+                <span>Read Our Story</span>
+                <span className="arrow">→</span>
+              </Link>
+            ) : (
+              <Link href="/careers" className="btn btn-fire" style={{ marginTop: 34 }}>
+                <span>View driving roles</span>
+                <span className="arrow">→</span>
+              </Link>
+            )}
           </Reveal>
         </div>
       </div>

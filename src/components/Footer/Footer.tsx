@@ -1,9 +1,6 @@
-"use client"
-
 import Link from "next/link";
 import { LogoFlame } from "../icons/WildfireIcons";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 const YEAR = new Date().getFullYear();
 
@@ -42,21 +39,20 @@ function SocialPhone() {
 }
 
 export default function Footer() {
-
-  const router = useRouter();
-
   return (
     <footer className="site-footer">
       <div className="wf-container">
         <div className="foot-grid">
           <div className="foot-brand">
-              <Image src="/images/we2.png" alt="Logo" width={100} height={100} className="cursor-pointer" onClick={() => router.push("/")}/>  
+            <Link href="/" className="logo" aria-label="Wildfire Express home">
+              <Image src={"/images/we2.png"} alt="" width={100} height={100} />
               <span className="logo-text">
-                Wild Fire Express
+                Wildfire Express
                 <small>OTR · DRY VAN · 48 STATES</small>
               </span>
+            </Link>
             <p>
-              Wild Fire Express LLC — a dry van OTR carrier built around the people
+              Wildfire Express LLC — a dry van OTR carrier built around the people
               who drive. USDOT pending · MC pending.
             </p>
           </div>
@@ -69,9 +65,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/services">Services</Link>
-              </li>
-              <li>
-                <Link href="/fleet">Fleet</Link>
               </li>
               <li>
                 <Link href="/careers">Careers</Link>
@@ -108,7 +101,7 @@ export default function Footer() {
               </li>
               <li>Yard &amp; HQ — USA</li>
               <li>
-                <Link href="/contact">Contact form</Link>
+                <Link href="/contact#contact-bottom">Contact form</Link>
               </li>
             </ul>
           </div>
@@ -116,7 +109,7 @@ export default function Footer() {
 
         <div className="foot-bottom">
           <div>
-            © {YEAR} Wild Fire Express LLC · All rights reserved.
+            © {YEAR} Wildfire Express LLC · All rights reserved.
           </div>
           <div className="foot-socials">
             <a href="#" aria-label="Instagram">

@@ -2,79 +2,109 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useState, type MouseEvent } from "react";
 import { LogoFlame, PhoneStroke } from "../icons/WildfireIcons";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-
 
 const NAV = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/fleet", label: "Fleet" },
-  { href: "/careers", label: "Careers" },
-  { href: "/contact", label: "Contact" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/careers", label: "Careers" },
+    { href: "/contact#contact-bottom", label: "Contact" },
 ] as const;
 
-function isActiveNav(pathname: string, href: string) {
-  if (href === "/") return pathname === "/";
-  return pathname === href || pathname.startsWith(`${href}/`);
+function isActiveNav(pathname: string, navHref: string) {
+    const base = navHref.split("#")[0] ?? navHref;
+    if (base === "/") return pathname === "/";
+    return pathname === base || pathname.startsWith(`${base}/`);
 }
 
 export default function Header() {
-  const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
+    const pathname = usePathname();
+    const [mobileOpen, setMobileOpen] = useState(false);
 
-  const closeMobile = useCallback(() => setMobileOpen(false), []);
+    const closeMobile = useCallback(() => setMobileOpen(false), []);
 
-  const router = useRouter();
+    const handleNavClick = useCallback(
+        (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
+            closeMobile();
+            const base = href.split("#")[0] ?? href;
 
-  return (
-    <header
-      className={`site-header${mobileOpen ? " nav-mobile-open" : ""}`}
-    >
-      <div className="wf-container nav">
-        <Image src="/images/we2.png" alt="Logo" width={100} height={100} className="cursor-pointer" onClick={() => router.push("/")} />
-        <span className="logo-text">
-          Wild Fire Express
-          <small>OTR · DRY VAN · 48 STATES</small>
-        </span>
+            if (base === "/" && pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                window.history.replaceState(null, "", "/");
+                return;
+            }
 
-        <ul className="nav-links">
-          {NAV.map(({ href, label }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                className={isActiveNav(pathname, href) ? "active" : undefined}
-                onClick={closeMobile}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+            if (
+                base === "/contact" &&
+                pathname === "/contact" &&
+                href.includes("contact-bottom")
+            ) {
+                e.preventDefault();
+                document
+                    .getElementById("contact-bottom")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                window.history.replaceState(null, "", "/contact#contact-bottom");
+            }
+        },
+        [pathname, closeMobile],
+    );
 
-        <div className="nav-cta">
-          <a href="tel:+10000000000" className="nav-phone">
-            <PhoneStroke />
-            +1 (000) 000-0000
-          </a>
-          <Link href="/careers" className="btn btn-fire btn-sm" onClick={closeMobile}>
-            <span>Drive With Us</span>
-            <span className="arrow">→</span>
-          </Link>
-          <button
-            type="button"
-            className="nav-toggle"
-            aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMobileOpen((o) => !o)}
-          >
-            <span />
-          </button>
-        </div>
-      </div>
-    </header>
-  );
+    return (
+        <header
+            className={`site-header${mobileOpen ? " nav-mobile-open" : ""}`}
+        >
+            <div className="wf-container nav">
+                <Link
+                    href="/"
+                    className="logo"
+                    aria-label="Wildfire Express home"
+                    onClick={handleNavClick("/")}
+                >
+                    <Image src={"/images/we2.png"} alt="" width={100} height={100} />
+                    <span className="logo-text">
+                        Wildfire Express
+                        <small>OTR · DRY VAN · 48 STATES</small>
+                    </span>
+                </Link>
+
+                <ul className="nav-links">
+                    {NAV.map(({ href, label }) => (
+                        <li key={href}>
+                            <Link
+                                href={href}
+                                className={isActiveNav(pathname, href) ? "active" : undefined}
+                                onClick={handleNavClick(href)}
+                            >
+                                {label}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+
+                <div className="nav-cta">
+                    <a href="tel:+10000000000" className="nav-phone">
+                        <PhoneStroke />
+                        +1 (000) 000-0000
+                    </a>
+                    <Link href="/careers" className="btn btn-fire btn-sm" onClick={closeMobile}>
+                        <span>Drive With Us</span>
+                        <span className="arrow">→</span>
+                    </Link>
+                    <button
+                        type="button"
+                        className="nav-toggle"
+                        aria-expanded={mobileOpen}
+                        aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                        onClick={() => setMobileOpen((o) => !o)}
+                    >
+                        <span />
+                    </button>
+                </div>
+            </div>
+        </header>
+    );
 }

@@ -9,16 +9,16 @@ const STATS = [
 
 export default function ByTheNumbers() {
   return (
-    <section className="stats">
+    <section className="stats mt-15 mb-15 border-none">
       <div className="wf-container">
         <Reveal>
           <div className="section-head" style={{ marginBottom: 48 }}>
-            <h2 style={{ color: "#fff" }}>
+            <h2>
               By the
               <br />
-              <span className="it it--on-dark">numbers.</span>
+              <span className="it it--muted">numbers.</span>
             </h2>
-            <p className="head-text" style={{ color: "rgba(255,255,255,0.65)" }}>
+            <p className="head-text">
               A small company doesn&apos;t mean small results. The metrics below
               are what we run on — and what we hold ourselves to, every week.
             </p>
