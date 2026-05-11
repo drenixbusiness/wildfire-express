@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   description:
     "Wild Fire Express is a dry van OTR carrier hauling freight across the lower 48. Owner operators and company drivers — better miles, honest pay, and dispatch that has your back.",
   icons: {
-    icon: "/images/we1.png",
+    icon: "/images/we2.png",
   },
 };
 
