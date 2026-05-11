@@ -1657,7 +1657,7 @@ button {
 
 /* ---------- Page hero (subpages) ---------- */
 .page-hero {
-  padding: 70px 0 60px;
+  padding: 64px 0;
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
   border-bottom: 1px solid var(--line);
   position: relative;
@@ -1803,9 +1803,26 @@ button {
   align-items: start;
 }
 
+/* Contact: sidebar (phone/email) vertically centered next to the form */
+.two-col-page.two-col-page--contact {
+  align-items: stretch;
+}
+
+.contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
 @media (max-width: 900px) {
   .two-col-page {
     grid-template-columns: 1fr;
+  }
+
+  .contact-sidebar {
+    height: auto;
+    justify-content: flex-start;
   }
 }
 
@@ -1820,9 +1837,16 @@ button {
 }
 
 .contact-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 18px;
+  width: 100%;
+}
+
+@media (min-width: 901px) {
+  .two-col-page--contact .contact-cards {
+    max-width: 380px;
+  }
 }
 
 .contact-card {
@@ -1872,15 +1896,14 @@ button {
 }
 
 .contact-bottom-band {
-  padding: 56px 0 72px;
+  padding: 64px 0;
   background: var(--bg-soft);
   border-top: 1px solid var(--line);
 }
 
-@media (max-width: 640px) {
-  .contact-cards {
-    grid-template-columns: 1fr;
-  }
+/* Contact main block: equal vertical padding (replaces default wf-section rhythm) */
+.wf-section.contact-main {
+  padding: clamp(40px, 6vw, 72px) 0;
 }
 
 .logo-with-image {

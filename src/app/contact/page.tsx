@@ -34,37 +34,39 @@ export default function ContactPage() {
         lead="Recruiting, dispatch, and operations each have a direct line. Tell us what you need — capacity for a lane, a question about settlements, or a driver ready to roll — and we will route you to the right desk."
       />
 
-      <section className="wf-section" style={{ paddingTop: 0 }}>
-        <div className="wf-container two-col-page">
+      <section className="wf-section contact-main">
+        <div className="wf-container two-col-page two-col-page--contact">
           <ContactForm />
 
-          <div className="contact-cards">
-            <div className="contact-card">
-              <div className="ico">
-                <PhoneStroke />
+          <div className="contact-sidebar">
+            <div className="contact-cards">
+              <div className="contact-card">
+                <div className="ico">
+                  <PhoneStroke />
+                </div>
+                <h4>Phone</h4>
+                <a className="v" href="tel:+10000000000">
+                  +1 (000) 000-0000
+                </a>
+                <p className="split-body" style={{ marginTop: 12, fontSize: 14 }}>
+                  Recruiting weekdays 7a–7p CT · Dispatch 24/7
+                </p>
               </div>
-              <h4>Phone</h4>
-              <a className="v" href="tel:+10000000000">
-                +1 (000) 000-0000
-              </a>
-              <p className="split-body" style={{ marginTop: 12, fontSize: 14 }}>
-                Recruiting weekdays 7a–7p CT · Dispatch 24/7
-              </p>
-            </div>
-            <div className="contact-card">
-              <div className="ico">
-                <IconMail />
+              <div className="contact-card">
+                <div className="ico">
+                  <IconMail />
+                </div>
+                <h4>Email</h4>
+                <a className="v" href="mailto:hr@wildfireexpress.com" style={{ fontSize: 18 }}>
+                  hr@wildfireexpress.com
+                </a>
               </div>
-              <h4>Email</h4>
-              <a className="v" href="mailto:hr@wildfireexpress.com" style={{ fontSize: 18 }}>
-                hr@wildfireexpress.com
-              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <CtaStrip showCallRecruiting={false} />
+      <CtaStrip showCallRecruiting={false} compactVertical />
 
       <section
         id="contact-bottom"
