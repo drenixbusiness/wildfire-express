@@ -4,7 +4,7 @@ import Reveal from "../Reveal/Reveal";
 import { ShieldStroke } from "../icons/WildfireIcons";
 
 const HERO_IMG =
-  "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80";
+  "https://images.unsplash.com/photo-1721054939948-e48106e6d3d9?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fHNlbWktdHJ1Y2t8ZW58MHx8MHx8fDA%3D";
 
 export default function Hero() {
   return (

@@ -74,6 +74,7 @@ export default function ContactForm() {
               value={formState.name}
               onChange={(e) => setFormState({ ...formState, name: e.target.value })}
               id="c-name" name="name" type="text" autoComplete="name" required
+              placeholder="Your name"
             />
           </div>
           <div className="field">
@@ -82,6 +83,7 @@ export default function ContactForm() {
               value={formState.email}
               onChange={(e) => setFormState({ ...formState, email: e.target.value })}
               id="c-email" name="email" type="email" autoComplete="email" required
+              placeholder="example@gmail.com"
             />
           </div>
         </div>
@@ -92,6 +94,7 @@ export default function ContactForm() {
               value={formState.phone}
               onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
               id="c-phone" name="phone" type="tel" autoComplete="tel"
+              placeholder="(123) 456-7890"
             />
           </div>
           <div className="field">

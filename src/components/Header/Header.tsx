@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useState, type MouseEvent } from "react";
-import { LogoFlame, PhoneStroke } from "../icons/WildfireIcons";
+import { PhoneStroke } from "../icons/WildfireIcons";
 import Image from "next/image";
 
 const NAV = [
@@ -11,7 +11,7 @@ const NAV = [
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/careers", label: "Careers" },
-    { href: "/contact#contact-bottom", label: "Contact" },
+    { href: "/contact", label: "Contact" },
 ] as const;
 
 function isActiveNav(pathname: string, navHref: string) {
@@ -83,6 +83,18 @@ export default function Header() {
                             </Link>
                         </li>
                     ))}
+
+                    {/* Mobile-only CTA — hidden on desktop via CSS */}
+                    <li className="nav-mobile-cta">
+                        <a href="tel:+10000000000" className="nav-phone">
+                            <PhoneStroke />
+                            +1 (000) 000-0000
+                        </a>
+                        <Link href="/contact" className="btn btn-fire btn-sm" onClick={closeMobile}>
+                            <span>Drive With Us</span>
+                            <span className="arrow">→</span>
+                        </Link>
+                    </li>
                 </ul>
 
                 <div className="nav-cta">
@@ -90,7 +102,7 @@ export default function Header() {
                         <PhoneStroke />
                         +1 (000) 000-0000
                     </a>
-                    <Link href="/careers" className="btn btn-fire btn-sm" onClick={closeMobile}>
+                    <Link href="/contact" className="btn btn-fire btn-sm sm:hidden" onClick={closeMobile}>
                         <span>Drive With Us</span>
                         <span className="arrow">→</span>
                     </Link>

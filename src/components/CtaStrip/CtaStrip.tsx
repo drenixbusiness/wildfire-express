@@ -34,15 +34,10 @@ export default function CtaStrip({
               </p>
             </div>
             <div className="cta-strip-actions">
-              <Link href="/careers" className="btn btn-fire">
+              <Link href="/contact" className="btn btn-fire">
                 <span>Start My Application</span>
                 <span className="arrow">→</span>
               </Link>
-              {showCallRecruiting ? (
-                <a href="tel:+10000000000" className="btn btn-ghost-light">
-                  Call Recruiting
-                </a>
-              ) : null}
             </div>
           </div>
         </Reveal>
