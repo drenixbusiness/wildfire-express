@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Anton, Instrument_Serif, Manrope } from "next/font/google";
+import CookieConsent from "../components/CookieConsent/CookieConsent";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import "./globals.css";
@@ -46,6 +47,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
