@@ -1,10 +1,18 @@
 import React from 'react'
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
 const PrivacyPolicy = () => {
     return (
         <main className="bg-near-black text-foreground min-h-screen pt-28 sm:pt-32 pb-16 px-4 sm:px-8 lg:px-12">
             <article className="max-w-4xl mx-auto bg-primary p-6 sm:p-8 lg:p-10 space-y-6">
                 <header className="space-y-3">
+                    <Breadcrumb
+                        items={[
+                            { label: "Home", href: "/" },
+                            { label: "Privacy Policy" },
+                        ]}
+                        className="mb-4"
+                    />
                     <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight">
                         Privacy Policy
                     </h1>

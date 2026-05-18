@@ -55,6 +55,10 @@ export default function Footer() {
               Wildfire Express LLC — a dry van OTR carrier built around the people
               who drive. USDOT pending · MC pending.
             </p>
+            <p className="text-[15px] text-[#525252] mb-9 leading-relaxed">
+              This site uses cookies to improve your experience. See our{" "}
+              <Link href="/privacy-policy" className="!text-[#f97316]">Privacy Policy</Link> for details.
+            </p>
           </div>
 
           <div>
