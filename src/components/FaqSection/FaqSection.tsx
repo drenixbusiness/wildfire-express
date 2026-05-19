@@ -8,7 +8,7 @@ const FAQS = [
   },
   {
     q: "How much experience do you require?",
-    a: "A minimum of six months recent OTR experience in a Class A sleeper. If you’re close to that mark, talk to recruiting — we evaluate every application individually.",
+    a: "A minimum of 2 years of recent OTR experience in a Class A sleeper is required. If you’re close to that requirement, contact our HR team — we evaluate every application individually.",
   },
   {
     q: "How often does Wildfire pay drivers?",

@@ -28,7 +28,7 @@ export default function ContactPage() {
         }
         title={
           <>
-            Talk to a <span className="it">real</span> human.
+            TALK TO <span className="it">Our</span> TEAM.
           </>
         }
         lead="Recruiting, dispatch, and operations each have a direct line. Tell us what you need — capacity for a lane, a question about settlements, or a driver ready to roll — and we will route you to the right desk."
@@ -100,7 +100,7 @@ export default function ContactPage() {
             </li>
             <li>
               <strong style={{ color: "var(--ink)" }}>Payments:</strong> Accounting
-              publishes settlement previews every Saturday for Friday direct deposit.
+              publishes settlement previews every Wednesday for Friday direct deposit.
             </li>
           </ul>
           <p className="split-body" style={{ marginTop: 28 }}>

@@ -101,7 +101,7 @@ export default function Footer() {
             <h4>Reach Us</h4>
             <ul>
               <li>
-                <a href="tel:+10000000000">+1 (000) 000-0000</a>
+                <a href="tel:+1(513)2065093">+1(513)206-5093</a>
               </li>
               <li>
                 <a href="mailto:hr@wildfireexpress.com">hr@wildfireexpress.com</a>
@@ -128,7 +128,7 @@ export default function Footer() {
             <a href="#" aria-label="Telegram">
               <SocialTelegram />
             </a>
-            <a href="tel:+10000000000" aria-label="Phone">
+            <a href="tel:+1(513)2065093" aria-label="Phone">
               <SocialPhone />
             </a>
           </div>

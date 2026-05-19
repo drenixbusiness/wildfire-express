@@ -29,8 +29,7 @@ export default function CtaStrip({
                 <span className="it">Run for years.</span>
               </h2>
               <p className="cta-lead">
-                The application takes 90 seconds. A real recruiter calls you back
-                inside 15 minutes during business hours.
+                The application takes only 90 seconds. An HR Specialist will contact you within 15 minutes during business hours.
               </p>
             </div>
             <div className="cta-strip-actions">

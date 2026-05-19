@@ -32,10 +32,7 @@ export default function CareersPage() {
             Next steps
           </h2>
           <p className="split-body" style={{ marginTop: 16 }}>
-            Submit a short application — most drivers finish in under two minutes. A
-            recruiter will call you back during business hours, walk through home time
-            expectations, and send a sample settlement so you know exactly how we
-            calculate pay before you ever bump a dock for us.
+            Submit a short application — most drivers finish in under two minutes. An HR Specialist will contact you during business hours, discuss home time expectations, and provide a sample settlement so you’ll understand exactly how your pay is calculated before you hit the road with us.
           </p>
           <p className="split-body">
             Have questions first? Visit our{" "}

@@ -86,9 +86,9 @@ export default function Header() {
 
                     {/* Mobile-only CTA — hidden on desktop via CSS */}
                     <li className="nav-mobile-cta">
-                        <a href="tel:+10000000000" className="nav-phone">
+                        <a href="tel:+1(513)2065093" className="nav-phone">
                             <PhoneStroke />
-                            +1 (000) 000-0000
+                            +1(513)206-5093
                         </a>
                         <Link href="/contact" className="btn btn-fire btn-sm" onClick={closeMobile}>
                             <span>Drive With Us</span>
@@ -98,9 +98,9 @@ export default function Header() {
                 </ul>
 
                 <div className="nav-cta">
-                    <a href="tel:+10000000000" className="nav-phone">
+                    <a href="tel:+1(513)2065093" className="nav-phone">
                         <PhoneStroke />
-                        +1 (000) 000-0000
+                        +1(513)206-5093
                     </a>
                     <Link href="/contact" className="btn btn-fire btn-sm sm:hidden" onClick={closeMobile}>
                         <span>Drive With Us</span>
