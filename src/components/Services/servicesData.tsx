@@ -27,26 +27,26 @@ export const SERVICES: ServiceCard[] = [
   },
   {
     num: "02 / SERVICE",
-    title: "Partial Loads",
+    title: "Fleet Support",
     description:
-      "Smarter use of trailer space — multiple shippers, one route. Lower per-shipment costs without putting your timeline on the line.",
-    tags: ["Cost-Sharing", "Mid-Volume", "Multi-Stop"],
+      "Pre-positioned trailers, yard swaps, and maintenance coordination so your truck never sits waiting on equipment. We move the freight, you move the needle.",
+    tags: ["DROP & HOOK", "YARD SWAP", "FAST TURN"],
     icon: <IconTruckPartial />,
   },
   {
     num: "03 / SERVICE",
-    title: "Drop & Hook",
+    title: "Driver Recruiting",
     description:
-      "Pre-positioned trailers ready when you are. Load while the truck is still rolling somewhere else — minutes saved compound across a fleet.",
-    tags: ["Pre-Loaded", "Fast Turn", "Yard Swap"],
+      "We source, screen, and onboard CDL-A drivers — company and owner-ops. Every applicant vetted for MVR, Clearinghouse, and experience before they ever get your number.",
+    tags: ["CDL-A VETTING", "FAST ONBOARD", "48 STATES"],
     icon: <IconDropHook />,
   },
   {
     num: "04 / SERVICE",
-    title: "Expedited Freight",
+    title: "HR Compliance",
     description:
-      "When the load needs to be there yesterday. Team drivers, dedicated lanes, and live tracking from pickup to POD — no surprises.",
-    tags: ["Team Driving", "Live ETA", "Priority Lanes"],
+      "DOT paperwork, driver files, DQ file audits, and policy documentation — handled so your operation stays audit-ready without the admin grind.",
+    tags: ["DOT FILES", "DQ AUDIT", "POLICY DOCS"],
     icon: <IconClock />,
   },
   {
