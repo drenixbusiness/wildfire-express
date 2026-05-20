@@ -122,7 +122,7 @@ const PrivacyPolicy = () => {
                     </p>
                     <ul className="space-y-2 leading-8">
                         <li><strong>Company:</strong> WILDFIRE EXPRESS LLC</li>
-                        <li><strong>Email:</strong> [EMAIL_ADDRESS]</li>
+                        <li><strong>Email:</strong> hr@wildfireexpress.com</li>
                         <li><strong>Phone:</strong> +1 (615) 578-1333</li>
                         <li><strong>Address:</strong> 250 Clifton Ave, Mount Juliet, TN</li>
                         <li><strong>Website:</strong> https://wildfireexpress.co/</li>

@@ -57,7 +57,7 @@ export default function Footer() {
             </p>
             <p className="text-[15px] text-[#525252] mb-9 leading-relaxed">
               This site uses cookies to improve your experience. See our{" "}
-              <Link href="/privacy-policy" className="!text-[#f97316]">Privacy Policy</Link> for details.
+              <Link href="/cookie-policy" className="!text-[#f97316]">Cookie Policy</Link> for details.
             </p>
           </div>
 
@@ -75,6 +75,9 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/privacy-policy">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link href="/cookie-policy">Cookie Policy</Link>
               </li>
             </ul>
           </div>
