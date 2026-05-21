@@ -3,21 +3,21 @@ import Reveal from "../Reveal/Reveal";
 const ITEMS = [
   {
     quote:
-      "I was running for a mega-fleet that treated me like a number. Switched to Wildfire eight months ago. Same lanes, same hours, $1,800 more per week.",
+      "Honestly I was skeptical after getting burned by two carriers before. First few weeks with Wildfire I kept waiting for the catch. Hasn't come yet. Miles are consistent, home time is what they told me, and nobody's playing games with the fuel surcharge.",
     initials: "MC",
     name: "Marcus Calhoun",
     role: "Owner Operator · Texas",
   },
   {
     quote:
-      "What sold me was the dispatch. Real people, day or night. When my trailer blew a tire outside Knoxville at 3 a.m., they had a fix on the way before I finished filing the report.",
+      "Had a blowout on I-40 around midnight. Called dispatch, guy picked up on the second ring. No attitude, just 'we got you.' Had a mobile tire service there in under an hour. That's not normal in this industry — I've sat on the side of the road for four hours with other carriers.",
     initials: "DR",
     name: "Devontae Reyes",
     role: "Company Driver · Georgia",
   },
   {
     quote:
-      "Settlement statements are clean, every Friday like clockwork. After fifteen years in this industry, I can finally read my paycheck without a calculator.",
+      "The pay stubs actually make sense. I know that sounds like a low bar but after 12 years of deciphering mystery deductions every week, I can't overstate how much that matters. I called in once about a discrepancy and it was fixed by end of day.",
     initials: "AK",
     name: "Aziz Khasanov",
     role: "Lease Partner · Illinois",
