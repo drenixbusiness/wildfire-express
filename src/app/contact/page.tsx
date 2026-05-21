@@ -45,8 +45,8 @@ export default function ContactPage() {
                   <PhoneStroke />
                 </div>
                 <h4>Phone</h4>
-                <a className="v" href="tel:+10000000000">
-                  +1 (000) 000-0000
+                <a className="v" href="tel:+1(513)206-5093">
+                  +1(513)206-5093
                 </a>
                 <p className="split-body" style={{ marginTop: 12, fontSize: 14 }}>
                   Recruiting weekdays 7a–7p CT · Dispatch 24/7

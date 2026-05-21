@@ -87,7 +87,7 @@ const CookiePolicy = () => {
                         <li><strong>Email:</strong> hr@wildfireexpress.com</li>
                         <li><strong>Phone:</strong> +1 (615) 578-1333</li>
                         <li><strong>Address:</strong> 250 Clifton Ave, Mount Juliet, TN</li>
-                        <li><strong>Website:</strong> https://wildfireexpress.co/</li>
+                        <li><strong>Website:</strong> https://wildfire-express.com</li>
                     </ul>
                 </section>
             </article>
